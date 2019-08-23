@@ -6,6 +6,7 @@ export const useGameStatus = rowsCleared => {
   const [level, setLevel] = useState(0);
 
   const linePoints = [40, 100, 300, 1200];
+  
   const calcScore = useCallback(() => {
     // We have score
     if (rowsCleared > 0) {

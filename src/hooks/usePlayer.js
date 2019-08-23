@@ -52,9 +52,15 @@ export const usePlayer = () => {
     }));
   };
 
-  const resetPlayer = useCallback(() => {
+  const resetPlayer = useCallback(currentPlayer => {
+    let y =
+      (currentPlayer && currentPlayer.pos.y - currentPlayer.tetromino.length) <
+      0
+        ? currentPlayer.pos.y - currentPlayer.tetromino.length
+        : 0;
+
     setPlayer({
-      pos: { x: STAGE_WIDTH / 2 - 2, y: 0 },
+      pos: { x: STAGE_WIDTH / 2 - 2, y },
       tetromino: randomTetromino().shape,
       collided: false
     });

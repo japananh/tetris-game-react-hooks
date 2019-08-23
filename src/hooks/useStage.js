@@ -52,7 +52,7 @@ export const useStage = (player, resetPlayer) => {
 
       for (let y = 0; y < player.tetromino.length; y++) {
         for (let x = 0; x < player.tetromino[y].length; x++) {
-          if (player.tetromino[y][x] !== 0) {
+          if (player.tetromino[y][x] !== 0 && y + player.pos.y >= 0) {
             newStage[y + player.pos.y][x + player.pos.x] = [
               player.tetromino[y][x],
               `${player.collided ? "merged" : "clear"}`
@@ -62,7 +62,10 @@ export const useStage = (player, resetPlayer) => {
       }
       // Then check if we collided
       if (player.collided) {
-        resetPlayer();
+        // Avoid a useless tetromino when player hits the ceiling
+        if (player.pos.y > 0) {
+          resetPlayer(player);
+        }
 
         return sweepRows(newStage);
       }
