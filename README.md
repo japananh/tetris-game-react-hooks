@@ -1,6 +1,6 @@
 I created a **Tetris Game with React Hooks**.
 
-**How to play**: Click the start game button to play the game. Press left/right/down arrow to move left/right/down. Press up button to change the shape of tetrominos. Have fun!
+**How to play**: Click the start game button to play the game. Press left/right/down arrow key to move left/right/down. Press up arrow key to change the shape of tetrominos. Have fun!
 
 Link to the game: [https://tetrisbyna.herokuapp.com/](https://tetrisbyna.herokuapp.com/)
 
